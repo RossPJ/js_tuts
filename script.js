@@ -54,20 +54,9 @@
 // //condtion ? if statement : else statement 
 // age >= 18 ? console.log('i like to drink cheese') : console.log('I like to eat water');
 
+// let arr = [ 'Apple', { name: 'John' }, true, function() { alert('hello'); } ];
+// console.log(typeof arr[3]);
 
-body{
-    font-family:Verdana,Arial,sans-serif;
-    font-size:8pt;
-    /* [ReplaceColor(themeColor:"Dark2-Darker")] */ color:#676767;
-    /* [ReplaceColor(themeColor:"Light1")] */ background-color:#fff;
-    margin:0px;
-    padding:0px;
-    
-    }
-
-    body.v4master{
-        height:100%;
-        width:100%;
-        overflow:hidden;
-        }
-        
+// for (i = 0; i < arr.length; i++) {
+//   console.log(arr[i] + 'poopsicle')
+// }
