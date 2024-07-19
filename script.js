@@ -61,3 +61,155 @@
 //   console.log(arr[i] + 'poopsicle')
 // }]
 // test comment for git push 
+
+// function clogger() {
+//     console.log('Inside the function buddy!')
+// };
+
+// clogger();
+
+
+// // function declaration
+// function calcAge1(birthYear) {
+//     const age = 2037 - birthYear;
+//     return age
+// };
+// console.log(calcAge1(1982));
+
+// // arrow functions (function expression)
+// var calcAge3 = birthYear => 2037 - birthYear;
+
+// console.log(calcAge3(1873));
+
+// let numbers = [1,2,4,8];
+
+// numbers.push(12)
+
+// console.log(numbers)
+// numbers.pop()
+// console.log(numbers)
+// numbers.splice(4,1)
+
+// let list = [
+//     {text: 'milk', cost: 4, need: false},
+//     {text: 'eggs', cost: 10, need: true},
+//     {text: 'butter', cost: 5, need: false},
+//     {text: 'bread', cost: 3, need: true},
+//     {text: 'bacon', cost: 12, need: true}
+ 
+// ];
+
+// names = ['patrick', 'henry', 'mango', 'boo boo'];
+
+// let html = '';
+// let total = 0;
+// let cost = '';
+
+//functions 
+
+// for (let i = 0; i < list.length; i++) {
+//     if (list[i].need === true) {
+//         html += `<li>${list[i].text}: $${list[i].cost}</li>`;
+//         total += list[i].cost
+//     };    
+// }
+
+// let html2 = '';
+
+// for (let i = 0; i < names.length; i++){
+//     html2 += `<p>Hello, my name is ${list[i].text}.</p>`;
+// }
+
+
+// document.getElementById('list').innerHTML = html;
+// document.getElementById('cost').innerHTML = `$${total}`;
+// document.getElementById('para_text').innerHTML = html2;
+
+//  let list = [
+//     {text: 'milk', cost: 4, need: false},
+//     {text: 'eggs', cost: 10, need: true},
+//     {text: 'butter', cost: 5, need: false},
+//     {text: 'bread', cost: 3, need: true},
+//     {text: 'bacon', cost: 12, need: true}
+// ];
+
+// function generateTable(tableData) {
+//     let table = document.createElement('table');
+//     let thead = table.createTHead();
+//     let tbody = table.createTBody();
+
+//     // Create table header row
+//     let headerRow = thead.insertRow();
+//     Object.keys(tableData[0]).forEach(key => {
+//         let th = document.createElement('th');
+//         let text = document.createTextNode(key);
+//         th.appendChild(text);
+//         headerRow.appendChild(th);
+//     });
+
+//     // Create table rows with data
+//     tableData.forEach(item => {
+//         let row = tbody.insertRow();
+//         Object.values(item).forEach(value => {
+//             let cell = row.insertCell();
+//             let text = document.createTextNode(value);
+//             cell.appendChild(text);
+//         });
+//     });
+
+//     return table;
+// }
+
+// // Get the container element where you want to add the table
+// let container = document.getElementById('tableContainer');
+
+// // Generate the table and add it to the container
+// container.appendChild(generateTable(list));
+
+let list = [
+    {id: 2123, text: 'milk', cost: 4, need: false},
+    {id: 2123, text: 'milk', cost: 23, need: true},
+    {id: 1200, text: 'eggs', cost: 10, need: true},
+    {id: 1100, text: 'butter', cost: 5, need: false},
+    {id: 1000, text: 'bread', cost: 3, need: true},
+    {id: 900, text: 'bacon', cost: 12, need: true}
+];
+
+
+list.forEach((i) => console.log(i));
+
+
+
+ 
+
+const data = [
+    { name: 'Rahul abdul jabaar', age: 25, city: 'New Delhi' },
+    { name: 'Vijay vajayjay', age: 30, city: 'Muzaffarpur' },
+    { name: 'Gaurav durov', age: 22, city: 'Noida' },
+];
+
+function createTableWithInnerHTML() {
+    let tableHTML = '<table border="3"><tr>';
+
+    Object.keys(data[0]).forEach(key => {
+        tableHTML += `<th>${key}</th>`;
+    });
+
+    tableHTML += '</tr>';
+
+    data.forEach(item => {
+        tableHTML += '<tr>';
+        Object.values(item).forEach(value => {
+            tableHTML += `<td>${value}</td>`;
+        });
+        tableHTML += '</tr>';
+    });
+
+    tableHTML += '</table>';
+
+    document.body.innerHTML += tableHTML;
+}
+
+createTableWithInnerHTML();
+
+
