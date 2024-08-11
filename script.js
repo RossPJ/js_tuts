@@ -166,50 +166,111 @@
 // // Generate the table and add it to the container
 // container.appendChild(generateTable(list));
 
-let list = [
-    {id: 2123, text: 'milk', cost: 4, need: false},
-    {id: 2123, text: 'milk', cost: 23, need: true},
-    {id: 1200, text: 'eggs', cost: 10, need: true},
-    {id: 1100, text: 'butter', cost: 5, need: false},
-    {id: 1000, text: 'bread', cost: 3, need: true},
-    {id: 900, text: 'bacon', cost: 12, need: true}
-];
+// let list = [
+//     {id: 2123, text: 'milk', cost: 4, need: false},
+//     {id: 2123, text: 'milk', cost: 23, need: true},
+//     {id: 1200, text: 'eggs', cost: 10, need: true},
+//     {id: 1100, text: 'butter', cost: 5, need: false},
+//     {id: 1000, text: 'bread', cost: 3, need: true},
+//     {id: 900, text: 'bacon', cost: 12, need: true}
+// ];
 
 
-list.forEach((i) => console.log(i));
+// list.forEach((i) => console.log(i));
 
 
+// const data = [
+//     { name: 'Rahul abdul jabaar', age: 25, city: 'New Delhi' },
+//     { name: 'Vijay vajayjay', age: 30, city: 'Muzaffarpur' },
+//     { name: 'Gaurav durov', age: 22, city: 'Noida' },
+// ];
 
+// function createTableWithInnerHTML() {
+//     let tableHTML = '<table border="3"><tr>';
+
+//     Object.keys(list[0]).forEach(key => {
+//         tableHTML += `<th>${key}</th>`;
+//     });
+
+//     tableHTML += '</tr>';
+
+//     list.forEach(item => {
+//         tableHTML += '<tr>';
+//         Object.values(item).forEach(value => {
+//             tableHTML += `<td>${value}</td>`;
+//         });
+//         tableHTML += '</tr>';
+//     });
+
+//     tableHTML += '</table>';
+
+//     document.body.innerHTML += tableHTML;
+// }
+
+// createTableWithInnerHTML();
+
+
+// function functionBuddy(){
+//     return alert('Function Buddy!')
+// }
+
+
+// let functionBuddy2 = function () {
+//     return alert('Function Buddy Number Fucking 2!!')
+// }
+
+
+// const getGreeting = () => {
+
+//     let getName = prompt('Enter your name fool:');
+//     document.getElementById('intro').innerHTML = getName;
+// }
+
+
+$( document ).ready(function() {
  
+   $.ajax({
+       url: "http://feeds.nytimes.com/nyt/rss/HomePage",
+       type: "GET",
+       dataType: "xml",
+       success: function ( data ) {
 
-const data = [
-    { name: 'Rahul abdul jabaar', age: 25, city: 'New Delhi' },
-    { name: 'Vijay vajayjay', age: 30, city: 'Muzaffarpur' },
-    { name: 'Gaurav durov', age: 22, city: 'Noida' },
-];
+        let html = '';
+                // Define an empty array to store titles
+        let titlesArray = [];
+        let linksArray = [];
 
-function createTableWithInnerHTML() {
-    let tableHTML = '<table border="3"><tr>';
+        // Find the title(s) in the RSS data
+        let rssTitle = $(data).find('title');
+        let rssLinks =$(data).find('link');
 
-    Object.keys(data[0]).forEach(key => {
-        tableHTML += `<th>${key}</th>`;
-    });
-
-    tableHTML += '</tr>';
-
-    data.forEach(item => {
-        tableHTML += '<tr>';
-        Object.values(item).forEach(value => {
-            tableHTML += `<td>${value}</td>`;
+        // Iterate over each title found and push it to the array
+        rssTitle.each(function() {
+            titlesArray.push($(this).text());
         });
-        tableHTML += '</tr>';
-    });
 
-    tableHTML += '</table>';
+        rssLinks.each(function() {
+            linksArray.push($(this).text());
+        });
 
-    document.body.innerHTML += tableHTML;
-}
 
-createTableWithInnerHTML();
+        // Log the array to check the titles
+        for (let i = 0; i < titlesArray.length; i++) {
+            html+=`<a href="${linksArray[i]}"><li>${titlesArray[i]}</li></a>`;
+
+        }
+       console.log(html)
+       document.getElementById('intro').innerHTML = html;
+       }
+
+
+
+
+
+
+   });
+ 
+});
+
 
 
